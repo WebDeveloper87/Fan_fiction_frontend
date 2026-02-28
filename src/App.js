@@ -14,7 +14,7 @@ import CreateStoryPage from "./pages/CreateStoryPage";
 import {Toaster} from "react-hot-toast";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [setData] = useState(null);
 
       useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/test`)

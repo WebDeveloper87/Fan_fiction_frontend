@@ -2,6 +2,7 @@ import React from 'react'
 import style from './footer.module.css'
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import logo from "../Header/logo.png";
 
 function Footer() {
     const { t } = useTranslation();
@@ -11,10 +12,7 @@ function Footer() {
                 <div className={style.container}>
 
                     <div className={style.brand}>
-                        <p className={style.logo}>
-                            F<span className={style.accent}>a</span>nF
-                            <span className={style.accent}>i</span>c
-                        </p>
+                        <img src={logo} alt="" className={style.logo}/>
                         <p className={style.tagline}>
                             {t("footer.slogan")}
                         </p>

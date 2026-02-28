@@ -11,17 +11,17 @@
     gap: 40px;
 }
 
-.logo {
-    font-family: var(--logo-font);
-    font-size: 28px;
-    color: var(--b-w);
+.logo{
+    hight: 70px;
+    width: 200px;
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
 }
 
-.accent {
-    color: var(--main-color);
-    font-family: var(--logo-font);
+.logo:hover {
+    transform: scale(1.1) rotate(2deg);
 }
-
 .tagline {
     margin-top: 10px;
     color: var(--gary-white);
