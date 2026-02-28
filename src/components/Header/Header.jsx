@@ -15,7 +15,10 @@ function Header() {
 
     return (
         <header className={style.header}>
-            <img src={logo}  alt="" className={style.logo}/>
+            <div className={style.wrapper}>
+                <img src={logo} className={style.logo} alt="Logo"/>
+                <div className={style.glow}></div>
+            </div>
 
 
             <hr/>
@@ -27,7 +30,7 @@ function Header() {
                 <button
                     className={style["button-toggle"]}
                     onClick={toggleLanguage}>
-                    {lang === 'en' ? "UA"  : "EN"}
+                    {lang === 'en' ? "UA" : "EN"}
                 </button>
                 <hr/>
 
@@ -43,7 +46,8 @@ function Header() {
                     {t("header.account")}
                 </button>
             </div>
-            <button className={style.menu} onClick={() => setIsOpen(prev => !prev)}>{isOpen ? <i className='bx bx-x'></i> : <i className='bx bx-menu'></i>}</button>
+            <button className={style.menu} onClick={() => setIsOpen(prev => !prev)}>{isOpen ?
+                <i className='bx bx-x'></i> : <i className='bx bx-menu'></i>}</button>
         </header>
     )
 }
