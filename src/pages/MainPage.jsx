@@ -1,14 +1,18 @@
 import React from 'react'
 import Header from "../components/Header/Header";
-import SwiperSlide from "../components/SwiperSlide/SwiperSlide";
-import NextSlide from "../components/SwiperSlide/NextSlide";
 import Footer from "../components/Footer/Footer";
+import Lyrics from "../components/Lyrics/Lyrics";
+import CardSwiper from "../components/CardsSwiper/CardSwiper";
+import ReviewButton from "../components/ReviewButton/ReviewButton";
+import Invocations from "../components/Invocations/Invocations";
 
 function MainPage() {
     return (
         <div><Header/>
-            <SwiperSlide/>
-            <NextSlide/>
+            <Lyrics/>
+            <Invocations/>
+            <CardSwiper/>
+            <ReviewButton/>
             <Footer/>
         </div>
 

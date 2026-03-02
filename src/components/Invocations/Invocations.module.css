@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+}
+
+.card {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.card img {
+    width: 350px;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
