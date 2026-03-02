@@ -5,6 +5,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import {logo} from '.logo.png';
+
 
 export default () => {
     return (
@@ -17,10 +19,10 @@ export default () => {
             scrollbar={{draggable: true}}
         >
 
-            <SwiperSlide> <img src={} alt={}/> </SwiperSlide>
-            <SwiperSlide><img src={} alt={}/></SwiperSlide>
-            <SwiperSlide><img src={} alt={}/></SwiperSlide>
-            <SwiperSlide><img src={} alt={}/></SwiperSlide>
+            <SwiperSlide> <img src={logo} alt={"logo"}/> </SwiperSlide>
+            <SwiperSlide><img src={logo} alt={"logo"}/></SwiperSlide>
+            <SwiperSlide><img src={logo} alt={"logo"}/></SwiperSlide>
+            <SwiperSlide><img src={logo} alt={"logo"}/></SwiperSlide>
         </Swiper>
     );
 };

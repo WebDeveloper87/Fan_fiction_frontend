@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './footer.module.css'
-import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 function Footer() {
