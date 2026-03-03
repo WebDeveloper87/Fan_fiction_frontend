@@ -10,6 +10,8 @@ import AuthPage from "./pages/AuthPage";
 import MainLayout from "./layouts/MainLayout";
 import CreateStoryPage from "./pages/CreateStoryPage";
 import {Toaster} from "react-hot-toast";
+import ReviewPage from "./pages/ReviewPage";
+
 
 function App() {
   const [setData] = useState(null);
@@ -36,6 +38,7 @@ function App() {
                       <Route path="/" element={<MainPage />} />
                       <Route path="/fanfics" element={<FanficsPage />} />
                       <Route path="/story/create" element={<CreateStoryPage />} />
+                  <Route path="/review" element={<ReviewPage />}></Route>
                   <Route element={<MainLayout />}></Route>
 
 

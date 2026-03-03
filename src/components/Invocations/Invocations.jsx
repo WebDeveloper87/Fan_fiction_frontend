@@ -8,17 +8,17 @@ export default function Invocations() {
     return (
          <div className={styles.container}>
             <div className={styles.create}>
-                <img src={create} alt="create"/>
+                <h1> Create</h1> <img src={create} alt="create"/>
             </div>
 
             <div className={styles.like}>
-                <img src={like} alt="like"/>
+              <h1> Like </h1>  <img src={like} alt="like"/>
             </div>
 
-            <div className={styles.share}>
-                <img src={share} alt="share"/>
-            </div>
-        </div>
+             <div className={styles.share}>
+                 <h1> Share </h1> <img src={share} alt="share"/>
+             </div>
+         </div>
 
     );
 }

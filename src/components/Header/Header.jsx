@@ -15,9 +15,9 @@ function Header() {
 
     return (
         <header className={style.header}>
-            <div className={style.wrapper}>
-                <img src={logo} className={style.logo} alt="Logo"/>
-                <div className={style.glow}></div>
+                    <div className={style.wrapper}>
+                    <img src={logo} className={style.logo} alt="Logo"/>
+                    <div className={style.glow}></div>
             </div>
 
 
