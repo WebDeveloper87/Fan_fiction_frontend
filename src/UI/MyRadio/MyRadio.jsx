@@ -3,6 +3,7 @@ import style from './MyRadio.module.css'
 
 function MyRadio({name , id , checked, onChange, label}) {
     return (
+
         <div className={style.box}>
             <input className={style.customRadio} type="radio" name={name} id={id} checked={checked}
                    onChange={onChange}/>
