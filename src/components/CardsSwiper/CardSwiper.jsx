@@ -17,7 +17,7 @@ export default function CardsSwiper() {
                 className="cardsSwiper"
             >
                 <SwiperSlide className="card-slide">
-                    <div className="fanfic-card"><img src={logo} alt={"logo"}/></div>
+                    <div className="fanfic-card"> <h1>Vasil</h1> <h2>This is a very good project</h2><img src={logo} alt={"logo"}/></div>
                 </SwiperSlide>
 
                 <SwiperSlide className="card-slide">

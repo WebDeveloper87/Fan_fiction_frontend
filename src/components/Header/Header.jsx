@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import {ThemeContext} from "../../context/ThemeContext";
 import {LanguageContext} from "../../context/LanguageContext";
 import {Link, useNavigate} from "react-router-dom";
-import logo from './logo.png';
 
 function Header() {
     const { t } = useTranslation();
@@ -15,10 +14,9 @@ function Header() {
 
     return (
         <header className={style.header}>
-                    <div className={style.wrapper}>
-                    <img src={logo} className={style.logo} alt="Logo"/>
-                    <div className={style.glow}></div>
-            </div>
+            <p className={style.logo}>
+                F<span className={style.accent}>a</span>nF<span className={style.accent}>i</span>c
+            </p>
 
 
             <hr/>

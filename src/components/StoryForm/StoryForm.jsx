@@ -12,7 +12,7 @@ function StoryForm() {
     const [character, setCharacter] = useState('');
     const [characters, setCharacters] = useState([]);
     const { t } = useTranslation();
-    const { lang, toggleLanguage } = useContext(LanguageContext);
+    const { lang } = useContext(LanguageContext);
 
     const addCharacter = (name = '', description = '', templateId = null) => {
         if (!templateId) {
