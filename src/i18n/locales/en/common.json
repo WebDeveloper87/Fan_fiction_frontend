@@ -50,7 +50,10 @@
   "invocations": {
     "create": "Create",
     "like": "Like",
-    "share": "Share"
+    "share": "Share",
+    "l": "Support the content you truly enjoy.\nFind stories that captivate you and support the creators with likes. This way you help the best works rise higher and the creators get motivated to create even more interesting content.",
+    "c": "Create amazing content and bring ideas to life.\nWrite fanfiction, invent new stories, create your own worlds and characters. Our platform will help you easily format the text, add emotions to the story and share your creativity with other readers.",
+    "s": "Share moments and ideas with the world.\nShare your favorite stories with friends and the community. Expand your creativity, discover new authors, and help great stories find their readers."
   },
   "review": {
     "leave": "Leave a review"

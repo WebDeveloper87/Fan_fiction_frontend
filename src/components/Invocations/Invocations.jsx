@@ -12,17 +12,17 @@ export default function Invocations() {
     const blocks = [
         {
             title: t("invocations.create"),
-            text: "Create amazing content and bring ideas to life.",
+            text: t("invocations.c"),
             img: create
         },
         {
             title: t("invocations.like"),
-            text: "Support the content you truly enjoy.",
+            text: t("invocations.l"),
             img: like
         },
         {
             title: t("invocations.share"),
-            text: "Share moments and ideas with the world.",
+            text: t("invocations.s"),
             img: share
         }
     ];
