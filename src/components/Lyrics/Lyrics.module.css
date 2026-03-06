@@ -22,7 +22,6 @@
     line-height: 1.2;
 }
 
-/* підзаголовок */
 .subtitle{
     font-family: var(--main-font);
     font-size: 22px;
@@ -35,7 +34,6 @@
     line-height: 1.7;
 }
 
-/* додатковий текст */
 .text{
     font-family: var(--main-font);
     font-size: 18px;
@@ -46,7 +44,6 @@
     max-width: 750px;
 }
 
-/* мобільна адаптація */
 @media (max-width: 900px){
 
     .lyrics{

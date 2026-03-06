@@ -15,7 +15,6 @@ function StoryForm() {
     const { t } = useTranslation();
     const { lang } = useContext(LanguageContext);
 
-    // ✅ масив ключів жанрів
     const genres = [
         "romance",
         "drama",
@@ -109,7 +108,7 @@ function StoryForm() {
             language: lang,
             title,
             fandom,
-            genre, // ✅ тут ключ жанру (наприклад "romance")
+            genre,
             characters: formattedCharacters,
         };
 
