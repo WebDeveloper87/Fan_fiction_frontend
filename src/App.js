@@ -4,15 +4,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./styles/theme.module.css";
 import { ThemeProvider } from "./context/ThemeContext";
-import MainPage from "./pages/MainPage";
-import FanficsPage from "./pages/FanficsPage";
 import AuthPage from "./pages/AuthPage";
-import CreateStoryPage from "./pages/CreateStoryPage";
-import ReviewPage from "./pages/ReviewPage";
 import { Toaster } from "react-hot-toast";
-import GuestOnlyRoute from "./components/GuestOnlyRoute";
-import ProtectedRoute from "./components/ProtectedRoute";
-import HomePage from "./pages/HomePage";
+import MainLayout from "./layouts/MainLayout";
+import {privatRoutes, publicRoute} from "./router/routes";
 
 function App() {
     const [, setData] = useState(null);
@@ -38,34 +33,30 @@ function App() {
                     />
 
                     <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <GuestOnlyRoute>
-                                    <MainPage />
-                                </GuestOnlyRoute>
-                            }
-                        />
+                        <Route path="/auth" element={<AuthPage />}/>
 
-                        <Route
-                            path="/auth"
-                            element={
-                                <GuestOnlyRoute>
-                                    <AuthPage />
-                                </GuestOnlyRoute>
-                            }
-                        />
+                        <Route element={<MainLayout />}>
+                            {publicRoute.map(route => {
+                                const Component = route.component;
+                                return (
+                                    <Route
+                                        key={route.path}
+                                        path={route.path}
+                                        element={<Component />}
+                                    />
+                                );
+                            })}
 
-                        <Route
-                            element={
-                                <ProtectedRoute>
-                                     <HomePage />
-                                </ProtectedRoute>
-                            }
-                        >
-                            <Route path="/fanfics" element={<FanficsPage />} />
-                            <Route path="/story/create" element={<CreateStoryPage />} />
-                            <Route path="/review" element={<ReviewPage />} />
+                            {privatRoutes.map(route => {
+                                const Component = route.component;
+                                return (
+                                    <Route
+                                        key={route.path}
+                                        path={route.path}
+                                        element={<Component />}
+                                    />
+                                );
+                            })}
                         </Route>
                     </Routes>
                 </BrowserRouter>
