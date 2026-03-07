@@ -13,11 +13,11 @@ function Header() {
     const navigate = useNavigate();
 
     return (
-        // <div className={style.headerWrapper}>
         <header className={style.header}>
             <p className={style.logo}>
                 F<span className={style.accent}>a</span>nF<span className={style.accent}>i</span>c
             </p>
+
 
             <hr/>
 
@@ -28,14 +28,14 @@ function Header() {
                 <button
                     className={style["button-toggle"]}
                     onClick={toggleLanguage}>
-                    {lang === 'en' ? "UA"  : "EN"}
+                    {lang === 'en' ? "UA" : "EN"}
                 </button>
                 <hr/>
 
                 <button
                     className={style["button-toggle"]}
                     onClick={toggleTheme}>
-                    {theme == 'light' ? <i className='bx bx-moon'></i> : <i className='bx bx-sun'></i>}
+                    {theme === 'light' ? <i className='bx bx-moon'></i> : <i className='bx bx-sun'></i>}
                 </button>
 
                 <button
@@ -44,14 +44,9 @@ function Header() {
                     {t("header.account")}
                 </button>
             </div>
-            <button className={style.menu} onClick={() => setIsOpen(prev => !prev)}>{isOpen ? <i className='bx bx-x'></i> : <i className='bx bx-menu'></i>}</button>
+            <button className={style.menu} onClick={() => setIsOpen(prev => !prev)}>{isOpen ?
+                <i className='bx bx-x'></i> : <i className='bx bx-menu'></i>}</button>
         </header>
-    // <div className={`${style.mobileMenu} ${isOpen ? style.open : ""}`}>
-    //     <Link className={style["mobile-link"]} to='/'>{t("home")}</Link>
-    //     <Link className={style["mobile-link"]} to='/fanfics'>{t("fanfics")}</Link>
-    //     <button className={style['account-btn']}>{t("account")}</button>
-    // </div>
-    //  </div>
     )
 }
 

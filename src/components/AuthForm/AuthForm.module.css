@@ -1,9 +1,9 @@
 .container *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--main-font);
-}
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: var(--main-font);
+ }
 
 .bold{
     font-family: var(--tittle-font);

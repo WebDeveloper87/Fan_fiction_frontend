@@ -2,7 +2,7 @@
     background-color: var(--white-dark);
     box-shadow: 0 0 10px 3px var(--shadow);
     padding: 60px 80px 30px;
-    font-family: var(--main-font);
+    font-family: var(--main-font), serif;
 }
 
 .container {
@@ -12,14 +12,14 @@
 }
 
 .logo {
-    font-family: var(--logo-font);
+    font-family: var(--logo-font), serif;
     font-size: 28px;
     color: var(--b-w);
 }
 
 .accent {
     color: var(--main-color);
-    font-family: var(--logo-font);
+    font-family: var(--logo-font), serif;
 }
 
 .tagline {

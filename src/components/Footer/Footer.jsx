@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './footer.module.css'
-import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 function Footer() {
@@ -33,7 +32,10 @@ function Footer() {
                         <a href="#">{t("footer.roadmap")}</a>
                         <a href="#">{t("footer.community")}</a>
                     </div>
-
+                    <div className={style.section}>
+                        <h3>{t("footer.support")}</h3>
+                        <a href="/review">{t("footer.leave")}</a>
+                    </div>
                     <div className={style.section}>
                         <h3>{t("footer.contact")}</h3>
                         <div className={style.socials}>

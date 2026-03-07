@@ -1,55 +1,77 @@
-import './styles/App.css';
-import {useEffect, useState} from "react";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
-import {LanguageProvider} from "./context/LanguageContext";
-import './styles/theme.module.css'
-import {ThemeProvider} from "./context/ThemeContext";
-import Header from "./components/Header/Header";
+import "./styles/App.css";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LanguageProvider } from "./context/LanguageContext";
+import "./styles/theme.module.css";
+import { ThemeProvider } from "./context/ThemeContext";
 import MainPage from "./pages/MainPage";
 import FanficsPage from "./pages/FanficsPage";
-import Footer from "./components/Footer/Footer";
 import AuthPage from "./pages/AuthPage";
-import MainLayout from "./layouts/MainLayout";
 import CreateStoryPage from "./pages/CreateStoryPage";
-import {Toaster} from "react-hot-toast";
+import ReviewPage from "./pages/ReviewPage";
+import { Toaster } from "react-hot-toast";
+import GuestOnlyRoute from "./components/GuestOnlyRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
+import HomePage from "./pages/HomePage";
 
 function App() {
-  const [data, setData] = useState(null);
+    const [, setData] = useState(null);
 
-      useEffect(() => {
+    useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/test`)
             .then((res) => res.json())
             .then((data) => setData(data))
             .catch((err) => console.error("Error fetching backend:", err));
-      }, []);
+    }, []);
 
-  return (
-      <LanguageProvider>
-        <ThemeProvider>
-          <BrowserRouter>
-            {/*{<h1>{data ? JSON.stringify(data.message) : "Loading..."}</h1>}*/}
+    return (
+        <LanguageProvider>
+            <ThemeProvider>
+                <BrowserRouter>
+                    <Toaster
+                        position="bottom-right"
+                        toastOptions={{
+                            style: {
+                                fontFamily: '"Nunito", sans-serif',
+                            },
+                        }}
+                    />
 
-              <Toaster position="bottom-right"
-                       toastOptions={{
-                           style: {
-                               fontFamily: '"Nunito", sans-serif'
-                           },
-                       }}/>
-              <Routes>
-                  <Route element={<MainLayout />}>
-                      <Route path="/" element={<MainPage />} />
-                      <Route path="/fanfics" element={<FanficsPage />} />
-                      <Route path="/story/create" element={<CreateStoryPage />} />
-                  </Route>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <GuestOnlyRoute>
+                                    <MainPage />
+                                </GuestOnlyRoute>
+                            }
+                        />
 
+                        <Route
+                            path="/auth"
+                            element={
+                                <GuestOnlyRoute>
+                                    <AuthPage />
+                                </GuestOnlyRoute>
+                            }
+                        />
 
-                  <Route path="/auth" element={<AuthPage />} />
-
-              </Routes>
-          </BrowserRouter>
-        </ThemeProvider>
-      </LanguageProvider>
-  );
+                        <Route
+                            element={
+                                <ProtectedRoute>
+                                     <HomePage />
+                                </ProtectedRoute>
+                            }
+                        >
+                            <Route path="/fanfics" element={<FanficsPage />} />
+                            <Route path="/story/create" element={<CreateStoryPage />} />
+                            <Route path="/review" element={<ReviewPage />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </ThemeProvider>
+        </LanguageProvider>
+    );
 }
 
 export default App;

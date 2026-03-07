@@ -1,13 +1,14 @@
-import React from 'react'
+import React from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
-function FanficsPage() {
+
+ export default function ReviewPage() {
     return (
-        <div><Header/>
+        <div>
+            <Header/>
+
             <Footer/>
         </div>
     )
 }
-
-export default FanficsPage

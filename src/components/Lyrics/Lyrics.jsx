@@ -1,9 +1,15 @@
+import React from "react";
+import styles from "./Lyrics.module.css";
+import { useTranslation } from "react-i18next";
 
 export default function Lyrics() {
-    <div>
-        <h1>Твоя уява — без меж. Твоя історія — без правил</h1>
-        <h2>Зареєструйся та створи власний світ фанфіків разом із ШІ: нові сюжети, несподівані повороти, улюблені
-            персонажі — усе так, як хочеш саме ти.</h2>
-        <h3>Тут кожна ідея оживає. Почни писати свою легенду вже сьогодні.</h3>
-    </div>
+    const { t } = useTranslation();
+
+    return (
+        <section className={styles.lyrics}>
+            <h1 className={styles.title}>{t("lyrics.title")}</h1>
+            <h2 className={styles.subtitle}>{t("lyrics.subtitle")}</h2>
+            <p className={styles.text}>{t("lyrics.text")}</p>
+        </section>
+    );
 }
