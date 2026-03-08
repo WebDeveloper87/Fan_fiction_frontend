@@ -10,20 +10,10 @@ import AuthPage from "./pages/AuthPage";
 import CreateStoryPage from "./pages/CreateStoryPage";
 import ReviewPage from "./pages/ReviewPage";
 import { Toaster } from "react-hot-toast";
-import GuestOnlyRoute from "./components/GuestOnlyRoute";
-import ProtectedRoute from "./components/ProtectedRoute";
 import HomePage from "./pages/HomePage";
+import UserPage from "./pages/UserPage";
 
 function App() {
-    const [, setData] = useState(null);
-
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/test`)
-            .then((res) => res.json())
-            .then((data) => setData(data))
-            .catch((err) => console.error("Error fetching backend:", err));
-    }, []);
-
     return (
         <LanguageProvider>
             <ThemeProvider>
@@ -41,32 +31,25 @@ function App() {
                         <Route
                             path="/"
                             element={
-                                <GuestOnlyRoute>
+
                                     <MainPage />
-                                </GuestOnlyRoute>
                             }
                         />
 
                         <Route
                             path="/auth"
                             element={
-                                <GuestOnlyRoute>
+
                                     <AuthPage />
-                                </GuestOnlyRoute>
+
                             }
                         />
 
-                        <Route
-                            element={
-                                <ProtectedRoute>
-                                     <HomePage />
-                                </ProtectedRoute>
-                            }
-                        >
+                        <Route element={<HomePage />}/>
+                        <Route path="/users/me" element={<UserPage />}/>
                             <Route path="/fanfics" element={<FanficsPage />} />
                             <Route path="/story/create" element={<CreateStoryPage />} />
                             <Route path="/review" element={<ReviewPage />} />
-                        </Route>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider>
