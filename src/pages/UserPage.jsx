@@ -1,13 +1,11 @@
 import React from 'react'
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
-function FanficsPage() {
+function UserPage() {
     return (
-        <div><Header/>
-            <Footer/>
+        <div>
+
         </div>
     )
 }
 
-export default FanficsPage
+export default UserPage

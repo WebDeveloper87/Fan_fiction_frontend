@@ -1,13 +1,10 @@
 import React from 'react'
 import StoryForm from "../components/StoryForm/StoryForm";
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 
 function CreateStoryPage() {
     return (
-        <div><Header/>
+        <div>
             <StoryForm />
-            <Footer />
         </div>
     )
 }

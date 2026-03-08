@@ -1,12 +1,14 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import style from "./AuthForm.module.css";
 import {useTranslation} from "react-i18next";
 import MyInput from "../../UI/MyInput/MyInput";
 import toast from "react-hot-toast";
+import {AuthContext} from "../../context/AuthContext";
 
 function AuthForm() {
     const [active, setActive] = useState(false);
     const { t } = useTranslation();
+    const {setIsAuth} = useContext(AuthContext)
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
@@ -19,7 +21,7 @@ function AuthForm() {
 
     const loginRequest = async () => {
         const response = await fetch(
-            `${process.env.REACT_APP_API_URL}/auth/login`,
+            `${process.env.REACT_APP_API_URL}auth/login`,
             {
                 method: "POST",
                 headers: {
@@ -38,7 +40,9 @@ function AuthForm() {
             throw new Error(data.message || "Login failed");
         }
 
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("JWT_TOKEN", data.accessToken);
+        localStorage.setItem("JWT_ACCESS_TOKEN", data.refreshToken);
+        setIsAuth(true);
 
         return data;
     };
@@ -60,7 +64,7 @@ function AuthForm() {
 
     const registerRequest = async () => {
         const response = await fetch(
-            `${process.env.REACT_APP_API_URL}/auth/register`,
+            `${process.env.REACT_APP_API_URL}auth/register`,
             {
                 method: "POST",
                 headers: {
@@ -80,7 +84,9 @@ function AuthForm() {
             throw new Error(data.message || "Registration failed");
         }
 
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("JWT_TOKEN", data.accessToken);
+        localStorage.setItem("JWT_ACCESS_TOKEN", data.refreshToken);
+        setIsAuth(true);
 
         return data;
     };

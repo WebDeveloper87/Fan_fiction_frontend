@@ -12,12 +12,24 @@ function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 900) {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
+        <div className={style.headerWrapper}>
         <header className={style.header}>
             <p className={style.logo}>
                 F<span className={style.accent}>a</span>nF<span className={style.accent}>i</span>c
             </p>
-
 
             <hr/>
 
@@ -47,6 +59,12 @@ function Header() {
             <button className={style.menu} onClick={() => setIsOpen(prev => !prev)}>{isOpen ?
                 <i className='bx bx-x'></i> : <i className='bx bx-menu'></i>}</button>
         </header>
+         <div className={`${style.mobileMenu} ${isOpen ? style.open : ""}`}>
+             <Link className={style["mobile-link"]} to='/'>{t("home")}</Link>
+             <Link className={style["mobile-link"]} to='/fanfics'>{t("fanfics")}</Link>
+             <button className={style['account-btn']}>{t("account")}</button>
+         </div>
+          </div>
     )
 }
 
