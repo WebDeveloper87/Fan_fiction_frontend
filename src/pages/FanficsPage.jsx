@@ -2,9 +2,7 @@ import React from 'react'
 
 function FanficsPage() {
     return (
-        <div>
-
-        </div>
+        <div>FanficsPage</div>
     )
 }
 

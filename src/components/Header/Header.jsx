@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import style from './header.module.css';
 import { useTranslation } from "react-i18next";
 import {ThemeContext} from "../../context/ThemeContext";
@@ -30,7 +30,6 @@ function Header() {
             <p className={style.logo}>
                 F<span className={style.accent}>a</span>nF<span className={style.accent}>i</span>c
             </p>
-
 
             <hr/>
 
