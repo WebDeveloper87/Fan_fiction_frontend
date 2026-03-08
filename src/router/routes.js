@@ -1,6 +1,6 @@
 import MainPage from "../pages/MainPage";
 import CreateStoryPage from "../pages/CreateStoryPage";
-import FanficsPage from "../pages/UserPage";
+import FanficsPage from "../pages/FanficsPage";
 import UserPage from "../pages/UserPage";
 
 export const privatRoutes = [

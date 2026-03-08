@@ -10,11 +10,11 @@ export default function User() {
     const fetchUser = async () => {
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/users/me`,
+                `${process.env.REACT_APP_API_URL}users/me`,
                 {
                     method: "GET",
                     headers: {
-                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        Authorization: `Bearer ${localStorage.getItem("JWT_TOKEN")}`,
                     },
                 }
             );
