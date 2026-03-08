@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FanficsPage() {
+function UserPage() {
     return (
         <div>
 
@@ -8,4 +8,4 @@ function FanficsPage() {
     )
 }
 
-export default FanficsPage
+export default UserPage

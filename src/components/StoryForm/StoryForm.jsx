@@ -112,13 +112,13 @@ function StoryForm() {
             characters: formattedCharacters,
         };
 
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("JWT_TOKEN");
         if (!token) {
             throw new Error(t("errors.mustBeLoggedIn"));
         }
 
         const response = await fetch(
-            `${process.env.REACT_APP_API_URL}/stories/generate-and-save`,
+            `${process.env.REACT_APP_API_URL}stories/generate-and-save`,
             {
                 method: "POST",
                 headers: {
