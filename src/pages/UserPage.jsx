@@ -11,4 +11,3 @@ import User from "../components/User/User";
         </div>
     )
 }
-
