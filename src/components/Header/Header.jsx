@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import style from './header.module.css';
 import { useTranslation } from "react-i18next";
 import {ThemeContext} from "../../context/ThemeContext";

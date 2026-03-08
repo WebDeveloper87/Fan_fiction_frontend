@@ -102,18 +102,6 @@
     color: var(--main-color);
 }
 
-.account-btn{
-    height: 35px;
-    background-color: transparent;
-    color: var(--gary-white);
-    border-radius: 5px;
-    margin: auto 0 auto 40px;
-    padding: 0 20px;
-    font-size: 16px;
-    border: 2px solid var(--gary-white);
-    transition: all 0.3s ease;
-}
-
 .headerWrapper {
     position: relative;
 }

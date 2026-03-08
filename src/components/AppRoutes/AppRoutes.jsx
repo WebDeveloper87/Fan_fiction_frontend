@@ -8,7 +8,7 @@ import MainLayout from "../../layouts/MainLayout";
 
 function AppRoutes() {
 
-    const {isAuth, isLoading} = useContext(AuthContext)
+    const {isAuth} = useContext(AuthContext)
 
 
     return (
