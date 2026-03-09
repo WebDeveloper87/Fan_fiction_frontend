@@ -1,4 +1,5 @@
 import {createContext, useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -6,6 +7,14 @@ export const AuthProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem("JWT_TOKEN");
+        localStorage.removeItem("JWT_ACCESS_TOKEN");
+        setIsAuth(false);
+        navigate("/");
+    };
 
     const checkAuth = async () => {
 
@@ -71,7 +80,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuth, setIsAuth, loading }}>
+        <AuthContext.Provider value={{ isAuth, setIsAuth, loading, logout }}>
             {children}
         </AuthContext.Provider>
     );

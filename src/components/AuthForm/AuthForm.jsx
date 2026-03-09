@@ -4,11 +4,13 @@ import {useTranslation} from "react-i18next";
 import MyInput from "../../UI/MyInput/MyInput";
 import toast from "react-hot-toast";
 import {AuthContext} from "../../context/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 function AuthForm() {
     const [active, setActive] = useState(false);
     const { t } = useTranslation();
     const {setIsAuth} = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
@@ -43,6 +45,7 @@ function AuthForm() {
         localStorage.setItem("JWT_TOKEN", data.accessToken);
         localStorage.setItem("JWT_ACCESS_TOKEN", data.refreshToken);
         setIsAuth(true);
+        navigate('/fanfics')
 
         return data;
     };
@@ -87,6 +90,7 @@ function AuthForm() {
         localStorage.setItem("JWT_TOKEN", data.accessToken);
         localStorage.setItem("JWT_ACCESS_TOKEN", data.refreshToken);
         setIsAuth(true);
+        navigate('/fanfics')
 
         return data;
     };

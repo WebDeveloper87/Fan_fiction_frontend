@@ -85,22 +85,6 @@
     padding: 0;
 }
 
-.button-toggle{
-    background-color: transparent;
-    color: var(--gary-white);
-    font-family: var(--main-font);
-    font-weight: 500;
-    font-style: normal;
-    cursor: pointer;
-    border: none;
-    padding: 5px;
-    font-size: 16px;
-    transition: all 0.5s ease;
-}
-
-.button-toggle:hover{
-    color: var(--main-color);
-}
 
 .headerWrapper {
     position: relative;
@@ -135,7 +119,7 @@
     pointer-events: auto;
 }
 
-.mobile-link{
+.mobileLink{
     color: var(--gary-white);
     text-decoration: none;
     cursor: pointer;
@@ -149,13 +133,13 @@
     transition: all 0.3s ease;
 }
 
-.mobile-link:hover{
+.mobileLink:hover{
     color: var(--main-color);
 }
 
 
 
-.button-toggle{
+.buttonToggle{
     background-color: transparent;
     color: var(--gary-white);
     font-family: var(--main-font);
@@ -168,11 +152,11 @@
     transition: all 0.5s ease;
 }
 
-.button-toggle:hover{
+.buttonToggle:hover{
     color: var(--main-color);
 }
 
-.account-btn{
+.accountBtn{
     height: 35px;
     background-color: transparent;
     color: var(--gary-white);
@@ -184,14 +168,14 @@
     transition: all 0.3s ease;
 }
 
-.account-btn:hover{
+.accountBtn:hover{
     color: white;
     background-color: var(--main-color);
     border: 2px solid var(--main-color);
 
 }
 
-.account-btn:active{
+.accountBtn:active{
     transform: scale(0.98);
 }
 
@@ -216,7 +200,7 @@
     color: var(--main-color);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
 
     .header hr{
         display: none;
