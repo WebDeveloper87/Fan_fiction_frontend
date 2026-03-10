@@ -24,6 +24,7 @@
     --g-lg: #606060;
     --gradient : linear-gradient(90deg, #fdf9d2, #f8d1fd);
     --shadow : rgba(0, 0, 0, 0.1);
+    --story: #da93ff;
 }
 
 
@@ -46,4 +47,5 @@
     --g-lg: #c1c1c1;
     --gradient : linear-gradient(90deg, #393939, #271f2c);
     --shadow :rgba(255, 255, 255, 0.1);
+    --story: #9720d5;
 }
