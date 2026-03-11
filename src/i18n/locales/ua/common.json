@@ -86,10 +86,44 @@
   "errors": {
     "fillAllFields": "Заповни всі поля та додай хоча б одного персонажа.",
     "mustBeLoggedIn": "Ти маєш увійти в акаунт, щоб створити історію.",
-    "failedToGenerateStory": "Не вдалося згенерувати історію."
+    "failedToGenerateStory": "Не вдалося згенерувати історію.",
+    "NotLoggedIn": "Ви не увійшли в акаунт",
+    "UserNotFound": "Користувача не знайдено",
+    "StoriesNotFound": "Історії не знайдено",
+    "FailedToUpdateStoryStatus": "Не вдалося оновити статус історії",
+    "EmptyUsername": "Ім'я користувача не може бути порожнім",
+    "FailedToUpdateUsername": "Не вдалося оновити ім'я користувача"
   },
   "toast": {
     "generating": "Генерую історію...",
     "generated": "Історію успішно створено!"
+  },
+  "common": {
+    "Loading": "Завантаження...",
+    "Saving": "Збереження...",
+    "Save": "Зберегти",
+    "Cancel": "Скасувати"
+  },
+  "user": {
+    "AvatarAlt": "користувач",
+    "RegisteredAt": "Зареєстрований:",
+    "PublishedStoriesCount_one": "{{count}} опублікована історія",
+    "PublishedStoriesCount_few": "{{count}} опубліковані історії",
+    "PublishedStoriesCount_many": "{{count}} опублікованих історій",
+    "PublishedStoriesCount_other": "{{count}} опублікованих історій",
+    "Stories": "Історії",
+    "Public": "Публічні",
+    "Private": "Приватні",
+    "NoStoriesYet": "Історій поки немає",
+    "NoPublicStories": "Немає публічних історій",
+    "NoPrivateStories": "Немає приватних історій",
+    "MakePrivate": "Зробити приватною",
+    "MakePublic": "Зробити публічною",
+    "StoryMadePrivate": "Історію зроблено приватною",
+    "StoryMadePublic": "Історію зроблено публічною",
+    "ChangeUsername": "Змінити ім'я",
+    "NewUsername": "Нове ім'я",
+    "UsernameUpdated": "Ім'я користувача оновлено"
   }
+
 }
