@@ -73,6 +73,7 @@ function Header() {
                             onClick={logout}>
                             Logout
                         </button>
+                        <button className={style.profile}>I</button>
                     </>
                 ) : (
                     <button

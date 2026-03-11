@@ -14,9 +14,16 @@ function Stories() {
 
     const lastElement = useRef()
 
+    //const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+
     const fetchStories = async () => {
         try {
             setLoading(true);
+
+
+            //await sleep(5000);
+
             const data = await getStories(limit, cursor);
             console.log(data)
             setCursor(data.nextCursor)
@@ -39,20 +46,23 @@ function Stories() {
 
 
     return (
-        <div className={style.stories}>
-            {loading && <Loader /> }
-            {stories.map((story) => (
-                <div key={story.id}>
-                    <div className={style.story}>
-                        <p>{story.id}</p>
-                        <b>Title : {story.title}</b>
-                        <p>Author : {story.user.username}</p>
-                        <i className='bx bx-right-arrow-alt'></i>
+        <div className={style.contentStories}>
+            <div className={style.stories}>
+                {stories.map((story) => (
+                    <div key={story.id}>
+                        <div className={style.story}>
+                            <p>{story.id}</p>
+                            <b>Title : {story.title}</b>
+                            <p>Author : <a href="">{story.user.username}</a></p>
+                            <i className='bx bx-right-arrow-alt'></i>
+                        </div>
                     </div>
-                </div>
-            ))}
-            <div ref={lastElement} style={{height: 20, background: 'red'}}/>
+                ))}
+            </div>
+            {loading && <Loader /> }
+            <div ref={lastElement} style={{height: 20, width: '100%'}} />
         </div>
+
     )
 }
 

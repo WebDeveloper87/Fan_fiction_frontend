@@ -1,10 +1,19 @@
+.contentStories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--gradient);
+    min-height: 80vh;
+}
+
 .stories {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 18px;
     width: 100%;
     padding: 50px 200px;
-    background: var(--gradient);
 }
 .story {
     min-height: 150px;
@@ -21,6 +30,10 @@
     overflow: hidden;
     word-break: break-word;
     transition: all 0.4s ease;
+}
+
+.story a{
+    color: var(--b-w);
 }
 
 
