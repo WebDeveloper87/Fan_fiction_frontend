@@ -117,6 +117,11 @@ function StoryForm() {
             throw new Error(t("errors.mustBeLoggedIn"));
         }
 
+        const access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
+        if (!access_token) {
+            throw new Error(t("errors.mustBeLoggedIn"));
+        }
+
         const response = await fetch(
             `${process.env.REACT_APP_API_URL}stories/generate-and-save`,
             {
@@ -124,6 +129,7 @@ function StoryForm() {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
+                    "x-refresh-token" : `${access_token}`,
                 },
                 body: JSON.stringify(storyData),
             }

@@ -6,6 +6,7 @@
     width: 100%;
     background: var(--gradient);
     min-height: 80vh;
+    padding-top: 70px;
 }
 
 .stories {

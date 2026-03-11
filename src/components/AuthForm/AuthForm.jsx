@@ -3,13 +3,13 @@ import style from "./AuthForm.module.css";
 import {useTranslation} from "react-i18next";
 import MyInput from "../../UI/MyInput/MyInput";
 import toast from "react-hot-toast";
-import {AuthContext} from "../../context/AuthContext";
+import {UserContext} from "../../context/UserContext";
 import {useNavigate} from "react-router-dom";
 
 function AuthForm() {
     const [active, setActive] = useState(false);
     const { t } = useTranslation();
-    const {setIsAuth} = useContext(AuthContext)
+    const {setIsAuth} = useContext(UserContext)
     const navigate = useNavigate();
 
     const [loginEmail, setLoginEmail] = useState("");
@@ -21,7 +21,7 @@ function AuthForm() {
     const [registerPassword, setRegisterPassword] = useState("");
 
 
-    const loginRequest = async () => {
+    const loginRequest = async (email, password) => {
         const response = await fetch(
             `${process.env.REACT_APP_API_URL}auth/login`,
             {
@@ -53,19 +53,22 @@ function AuthForm() {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
 
-        if (!loginEmail || !loginPassword) {
+        const email = loginEmail.trim();
+        const password = loginPassword.trim();
+
+        if (!email || !password) {
             toast.error("All fields are required");
             return;
         }
 
-        toast.promise(loginRequest(), {
+        toast.promise(loginRequest(email, password), {
             loading: "Logging in...",
             success: (data) => `Welcome ${data.user.username}!`,
             error: (err) => err.message,
         });
     };
 
-    const registerRequest = async () => {
+    const registerRequest = async (username, email, password) => {
         const response = await fetch(
             `${process.env.REACT_APP_API_URL}auth/register`,
             {
@@ -98,12 +101,16 @@ function AuthForm() {
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
 
-        if (!registerUsername || !registerEmail || !registerPassword) {
+        const username = registerUsername.trim();
+        const email = registerEmail.trim();
+        const password = registerPassword.trim();
+
+        if (!username || !email || !password) {
             toast.error("All fields are required");
             return;
         }
 
-        toast.promise(registerRequest(), {
+        toast.promise(registerRequest(username, email, password), {
             loading: "Creating account...",
             success: (data) => `Account created for ${data.user.username}!`,
             error: (err) => err.message,

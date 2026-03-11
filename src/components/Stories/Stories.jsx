@@ -3,6 +3,8 @@ import {getStories} from "../../API/StoriesService";
 import Loader from "../../UI/Loader/Loader";
 import style from "./stories.module.css";
 import {useObserver} from "../../hooks/useObserver";
+import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function Stories() {
 
@@ -14,6 +16,9 @@ function Stories() {
 
     const lastElement = useRef()
 
+
+    const { t } = useTranslation();
+
     //const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
@@ -24,7 +29,7 @@ function Stories() {
 
             //await sleep(5000);
 
-            const data = await getStories(limit, cursor);
+            const data = await getStories(limit, cursor, t);
             console.log(data)
             setCursor(data.nextCursor)
             setStories(prev => [...prev, ...data.stories])
@@ -51,9 +56,8 @@ function Stories() {
                 {stories.map((story) => (
                     <div key={story.id}>
                         <div className={style.story}>
-                            <p>{story.id}</p>
-                            <b>Title : {story.title}</b>
-                            <p>Author : <a href="">{story.user.username}</a></p>
+                            <b>{t('stories.title')} : {story.title}</b>
+                            <p>{t('stories.author')} : <Link to={`/user/${story.user.username}`}>{story.user.username}</Link></p>
                             <i className='bx bx-right-arrow-alt'></i>
                         </div>
                     </div>

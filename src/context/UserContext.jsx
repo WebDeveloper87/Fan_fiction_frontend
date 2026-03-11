@@ -1,12 +1,13 @@
 import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-export const AuthContext = createContext();
+export const UserContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
     const logout = () => {
@@ -80,8 +81,8 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuth, setIsAuth, loading, logout }}>
+        <UserContext.Provider value={{ isAuth, setIsAuth, user, setUser, loading, logout }}>
             {children}
-        </AuthContext.Provider>
+        </UserContext.Provider>
     );
 };

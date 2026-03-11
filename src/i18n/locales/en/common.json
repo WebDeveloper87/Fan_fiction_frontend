@@ -2,7 +2,10 @@
   "header": {
     "home": "Home",
     "fanfics": "Fanfics",
-    "account": "Account"
+    "account": "Account",
+    "create" : "Create",
+    "logout" : "Logout",
+    "profile" : "Profile"
   },
   "footer": {
     "slogan": "A platform where imagination becomes stories",
@@ -92,5 +95,9 @@
   "toast": {
     "generating": "Generating story...",
     "generated": "Story generated successfully!"
+  },
+  "stories" : {
+    "title" : "Title",
+    "author" : "Author"
   }
 }

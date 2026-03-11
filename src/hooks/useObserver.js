@@ -17,6 +17,6 @@ export const useObserver = (ref, canLoad, isLoading ,callback) => {
         });
 
         observer.current.observe(ref.current);
-    }, [isLoading]);
+    }, [isLoading, canLoad]);
 
 }

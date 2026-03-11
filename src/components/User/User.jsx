@@ -36,31 +36,33 @@ export default function User() {
     }, []);
 
     return (
-        <div className={styles.userBlock}>
-            <div className={styles.leftSide}>
-                <img src={icon} alt="user" className={styles.avatar}/>
-                <button className={styles.changename}>Change username</button>
-            </div>
-
-            <div className={styles.rightSide}>
-                <h2 className={styles.name}>Artem</h2>
-                <p className={styles.createdAt}>Registered at 08.03.2026</p>
-                <p className={styles.countStories}>12 published stories</p>
-
-                <div className={styles.storySection}>
-                    <h3 className={styles.sectionTitle}>Published stories</h3>
-                    <div className={styles.storiesGrid}>
-                        <div className={styles.published}>Beautiful Country</div>
-                        <div className={styles.published}>Beautiful Country 2</div>
-                        <div className={styles.published}>Beautiful Country 3</div>
-                    </div>
+        <div className={styles.userContent}>
+            <div className={styles.userBlock}>
+                <div className={styles.leftSide}>
+                    <img src={icon} alt="user" className={styles.avatar}/>
+                    <button className={styles.changename}>Change username</button>
                 </div>
 
-                <div className={styles.storySection}>
-                    <h3 className={styles.sectionTitle}>Archived stories</h3>
-                    <div className={styles.storiesGrid}>
-                        <div className={styles.archived}>Archived story 1</div>
-                        <div className={styles.archived}>Archived story 2</div>
+                <div className={styles.rightSide}>
+                    <h2 className={styles.name}>Artem</h2>
+                    <p className={styles.createdAt}>Registered at 08.03.2026</p>
+                    <p className={styles.countStories}>12 published stories</p>
+
+                    <div className={styles.storySection}>
+                        <h3 className={styles.sectionTitle}>Published stories</h3>
+                        <div className={styles.storiesGrid}>
+                            <div className={styles.published}>Beautiful Country</div>
+                            <div className={styles.published}>Beautiful Country 2</div>
+                            <div className={styles.published}>Beautiful Country 3</div>
+                        </div>
+                    </div>
+
+                    <div className={styles.storySection}>
+                        <h3 className={styles.sectionTitle}>Archived stories</h3>
+                        <div className={styles.storiesGrid}>
+                            <div className={styles.archived}>Archived story 1</div>
+                            <div className={styles.archived}>Archived story 2</div>
+                        </div>
                     </div>
                 </div>
             </div>

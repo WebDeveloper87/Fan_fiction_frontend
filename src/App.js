@@ -5,7 +5,7 @@ import "./styles/theme.module.css";
 import {ThemeProvider} from "./context/ThemeContext";
 import {Toaster} from "react-hot-toast";
 import AppRoutes from "./components/AppRoutes/AppRoutes";
-import {AuthProvider} from "./context/AuthContext";
+import {AuthProvider} from "./context/UserContext";
 
 function App() {
 

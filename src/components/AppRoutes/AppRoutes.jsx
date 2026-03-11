@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {AuthContext} from "../../context/AuthContext";
+import {UserContext} from "../../context/UserContext";
 import {Route, Routes} from "react-router-dom";
 import {privatRoutes, publicRoute} from "../../router/routes";
 import AuthPage from "../../pages/AuthPage";
@@ -8,7 +8,7 @@ import MainLayout from "../../layouts/MainLayout";
 
 function AppRoutes() {
 
-    const {isAuth} = useContext(AuthContext)
+    const {isAuth} = useContext(UserContext)
 
 
     return (
