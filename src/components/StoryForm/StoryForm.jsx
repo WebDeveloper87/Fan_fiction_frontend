@@ -4,6 +4,7 @@ import MyRadio from "../../UI/MyRadio/MyRadio";
 import { LanguageContext } from "../../context/LanguageContext";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
+import {useNavigate} from "react-router-dom";
 
 function StoryForm() {
     const [genre, setGenre] = useState("");
@@ -12,8 +13,11 @@ function StoryForm() {
     const [character, setCharacter] = useState("");
     const [characters, setCharacters] = useState([]);
 
+    const [isDisabled, setIsDisabled] = useState(false);
+
     const { t } = useTranslation();
     const { lang } = useContext(LanguageContext);
+    const navigate = useNavigate();
 
     const genres = [
         "romance",
@@ -140,7 +144,7 @@ function StoryForm() {
         if (!response.ok) {
             throw new Error(data.message || t("errors.failedToGenerateStory"));
         }
-
+        navigate(`/story/${data.id}`);
         return data;
     };
 
@@ -152,10 +156,14 @@ function StoryForm() {
             return;
         }
 
+        setIsDisabled(true);
+
         toast.promise(storyRequest(), {
             loading: t("toast.generating"),
             success: () => t("toast.generated"),
             error: (err) => err.message,
+        }).finally(() => {
+            setIsDisabled(false);
         });
     };
 
@@ -286,7 +294,7 @@ function StoryForm() {
                     </div>
                 </div>
 
-                <button type="submit" className={style.create}>
+                <button type="submit" disabled={isDisabled} className={style.create}>
                     {t("storyForm.create")}
                 </button>
             </form>
