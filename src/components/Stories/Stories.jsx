@@ -3,7 +3,7 @@ import {getStories} from "../../API/StoriesService";
 import Loader from "../../UI/Loader/Loader";
 import style from "./stories.module.css";
 import {useObserver} from "../../hooks/useObserver";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 function Stories() {
@@ -15,7 +15,7 @@ function Stories() {
     let [page, setPage] = useState(1);
 
     const lastElement = useRef()
-
+    const navigate = useNavigate();
 
     const { t } = useTranslation();
 
@@ -95,7 +95,7 @@ function Stories() {
         <div className={style.contentStories}>
             <div className={style.stories}>
                 {stories.map((story) => (
-                    <div key={story.id}>
+                    <div onClick={() => navigate(`/story/${story.id}`)} key={story.id}>
                         <div className={style.story}>
                             <b>{t('stories.title')} : {story.title}</b>
                             <p>{t('stories.author')} : <Link to={`/user/${story.user.username}`}>{story.user.username}</Link></p>
