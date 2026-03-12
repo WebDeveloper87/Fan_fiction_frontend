@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 function AuthForm() {
     const [active, setActive] = useState(false);
     const { t } = useTranslation();
-    const {setIsAuth} = useContext(UserContext)
+    const {setIsAuth, } = useContext(UserContext)
     const navigate = useNavigate();
 
     const [loginEmail, setLoginEmail] = useState("");
