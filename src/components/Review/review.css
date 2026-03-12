@@ -1,3 +1,10 @@
+.reviewContent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .swiperSection{
     width: 100%;
     padding: 60px 0 120px;

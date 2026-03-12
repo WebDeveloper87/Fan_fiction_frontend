@@ -1,14 +1,14 @@
 import React from 'react'
 import Lyrics from "../components/Lyrics/Lyrics";
-import CardSwiper from "../components/CardsSwiper/CardSwiper";
 import Invocations from "../components/Invocations/Invocations";
+import Review from "../components/Review/Review";
 
 function MainPage() {
     return (
         <div>
                 <Lyrics/>
                 <Invocations/>
-                <CardSwiper/>
+                <Review/>
         </div>
 
     )
