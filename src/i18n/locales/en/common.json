@@ -96,7 +96,8 @@
     "StoriesNotFound": "Stories not found",
     "FailedToUpdateStoryStatus": "Failed to update story status",
     "EmptyUsername": "Username cannot be empty",
-    "FailedToUpdateUsername": "Failed to update username"
+    "FailedToUpdateUsername": "Failed to update username",
+    "StoryNotFound": "Story not found"
   },
   "toast": {
     "generating": "Generating story...",
@@ -131,5 +132,14 @@
     "Saving": "Saving...",
     "Save": "Save",
     "Cancel": "Cancel"
+  },
+  "story": {
+    "Fandom": "Fandom",
+    "Genre": "Genre",
+    "Author": "Author",
+    "Prompt": "Prompt",
+    "Read": "Read",
+    "CreatedAt": "Created at",
+    "Title": "Title : "
   }
 }

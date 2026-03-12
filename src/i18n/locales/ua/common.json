@@ -95,7 +95,8 @@
     "StoriesNotFound": "Історії не знайдено",
     "FailedToUpdateStoryStatus": "Не вдалося оновити статус історії",
     "EmptyUsername": "Ім'я користувача не може бути порожнім",
-    "FailedToUpdateUsername": "Не вдалося оновити ім'я користувача"
+    "FailedToUpdateUsername": "Не вдалося оновити ім'я користувача",
+    "StoryNotFound": "Історію не знайдено"
   },
   "toast": {
     "generating": "Генерую історію...",
@@ -131,6 +132,15 @@
     "ChangeUsername": "Змінити ім'я",
     "NewUsername": "Нове ім'я",
     "UsernameUpdated": "Ім'я користувача оновлено"
+  },
+  "story": {
+    "Fandom": "Фандом",
+    "Genre": "Жанр",
+    "Author": "Автор",
+    "Prompt": "Запит",
+    "Read": "Читати",
+    "CreatedAt": "Створена в",
+    "Title": "Назва : "
   }
 
 }
