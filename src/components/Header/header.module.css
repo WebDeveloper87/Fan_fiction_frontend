@@ -31,6 +31,8 @@
 }
 
 .header{
+    position: fixed;
+    top: 0;
     height:70px;
     width: 100%;
     box-sizing: border-box;
@@ -85,49 +87,30 @@
     padding: 0;
 }
 
-.button-toggle{
-    background-color: transparent;
-    color: var(--gary-white);
-    font-family: var(--main-font);
-    font-weight: 500;
-    font-style: normal;
-    cursor: pointer;
-    border: none;
-    padding: 5px;
-    font-size: 16px;
-    transition: all 0.5s ease;
-}
-
-.button-toggle:hover{
-    color: var(--main-color);
-}
 
 .headerWrapper {
     position: relative;
 }
 
 .mobileMenu {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 70px;
     right: 0;
-    width: 70vw;
+    width: 400px;
     height: calc(100vh - 70px);
-    background: var(--g-ld);
+    background-color: var(--white-dark);
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     z-index: 3;
-    border-left:1px solid #d7d7d7 ;
+    border-left:1px solid #d7d7d7;
     transform: translateX(100%);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
     pointer-events: none;
 }
 
-.mobileMenu button{
-    margin: auto auto 100px auto;
-}
 
 .open {
     transform: translateX(0);
@@ -135,27 +118,74 @@
     pointer-events: auto;
 }
 
-.mobile-link{
-    color: var(--gary-white);
+
+.mobileLink {
+    color: var(--b-w);
     text-decoration: none;
     cursor: pointer;
     font-size: 17px;
     font-family: var(--main-font);
     font-weight: 500;
     font-style: normal;
-    margin: 5px 25px;
-    padding: 5px 12px;
+    margin: 5px 0;
+    padding: 8px 12px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.mobile-link:hover{
+.mobileLink:hover {
     color: var(--main-color);
+}
+
+.mobileSettings {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.mobileSettings button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid var(--main-color);
+    background: var(--main-color);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobileSettings button:hover {
+    color: white;
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+.mobileAuth {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.mobileAuth button {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: var(--main-color);
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobileAuth button:hover {
+    opacity: 0.9;
 }
 
 
 
-.button-toggle{
+.buttonToggle{
     background-color: transparent;
     color: var(--gary-white);
     font-family: var(--main-font);
@@ -168,11 +198,11 @@
     transition: all 0.5s ease;
 }
 
-.button-toggle:hover{
+.buttonToggle:hover{
     color: var(--main-color);
 }
 
-.account-btn{
+.accountBtn{
     height: 35px;
     background-color: transparent;
     color: var(--gary-white);
@@ -184,17 +214,32 @@
     transition: all 0.3s ease;
 }
 
-.account-btn:hover{
+.accountBtn:hover{
     color: white;
     background-color: var(--main-color);
     border: 2px solid var(--main-color);
-
 }
 
-.account-btn:active{
+.accountBtn:active{
     transform: scale(0.98);
 }
 
+
+.profile{
+    background-color: transparent;
+    color: var(--gary-white);
+    border: 2px solid var(--gary-white);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin: auto 0 auto 20px;
+    transition: all 0.3s ease;
+}
+
+.profile:hover{
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
 
 .menu{
     margin-left: auto;
@@ -216,7 +261,7 @@
     color: var(--main-color);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
 
     .header hr{
         display: none;

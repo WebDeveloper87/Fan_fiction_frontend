@@ -1,0 +1,59 @@
+.contentStories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--gradient);
+    min-height: 80vh;
+    padding-top: 70px;
+}
+
+.stories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+    width: 100%;
+    padding: 50px 200px;
+}
+.story {
+    min-height: 150px;
+    padding: 18px 18px 20px;
+    border-radius: 22px;
+    font-family: var(--main-font);
+    font-size: 18px;
+    color: var(--b-w);
+    box-shadow: 0 6px 18px var(--shadow);
+    background: var(--white-dark);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    word-break: break-word;
+    transition: all 0.4s ease;
+}
+
+.story a{
+    color: var(--b-w);
+}
+
+
+.story:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px var(--shadow);
+    background: var(--story);
+}
+
+.story:hover i{
+    transform: rotate(-90deg);
+}
+
+
+
+.story i{
+    rotate: 45deg;
+    display: flex;
+    align-self: end;
+    margin-top: auto;
+    transition: all 0.4s ease;
+}

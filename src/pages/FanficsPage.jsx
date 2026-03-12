@@ -1,8 +1,11 @@
 import React from 'react'
+import Stories from "../components/Stories/Stories";
 
 function FanficsPage() {
     return (
-        <div>FanficsPage</div>
+        <div>
+            <Stories />
+        </div>
     )
 }
 
