@@ -39,17 +39,23 @@ export default function StoriesStatus({
         try {
             setLoadingId(story.id);
 
+            const token = localStorage.getItem("JWT_TOKEN");
+            const access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
+
+            if (!token || !access_token) {
+                throw new Error(t("errors.NotLoggedIn"));
+            }
+
             const response = await fetch(
                 `${process.env.REACT_APP_API_URL}stories/${story.id}/status`,
                 {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${localStorage.getItem("JWT_TOKEN")}`,
+                        Authorization: `Bearer ${token}`,
+                        "x-refresh-token": access_token,
                     },
-                    body: JSON.stringify({
-                        status: newStatus,
-                    }),
+                    body: JSON.stringify({ status: newStatus }),
                 }
             );
 
@@ -62,7 +68,7 @@ export default function StoriesStatus({
             setStories((prevStories) =>
                 prevStories.map((item) =>
                     item.id === story.id
-                        ? {...item, status: data.status ?? newStatus}
+                        ? { ...item, status: data.status ?? newStatus }
                         : item
                 )
             );

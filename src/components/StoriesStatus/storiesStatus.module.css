@@ -102,6 +102,8 @@
     opacity: 0;
     transition: opacity 0.2s ease, backdrop-filter 0.2s ease, background 0.2s ease;
     z-index: 2;
+    border-radius: inherit;
+
 }
 
 .publicCard:hover .overlay,

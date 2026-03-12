@@ -21,21 +21,26 @@ export default function UserPage() {
                 ? `${process.env.REACT_APP_API_URL}users/me`
                 : `${process.env.REACT_APP_API_URL}users/username/${username}`;
 
-            const headers = {};
+            let token = null;
+            let access_token = null;
 
             if (isOwner) {
-                const token = localStorage.getItem("JWT_TOKEN");
+                token = localStorage.getItem("JWT_TOKEN");
+                access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
 
-                if (!token) {
+                if (!token || !access_token) {
                     throw new Error(t("errors.NotLoggedIn"));
                 }
-
-                headers.Authorization = `Bearer ${token}`;
             }
 
             const response = await fetch(url, {
                 method: "GET",
-                headers,
+                headers: {
+                    ...(isOwner && {
+                        Authorization: `Bearer ${token}`,
+                        "x-refresh-token": `${access_token}`,
+                    }),
+                },
             });
 
             const data = await response.json();
@@ -56,21 +61,26 @@ export default function UserPage() {
                 ? `${process.env.REACT_APP_API_URL}stories/my-stories`
                 : `${process.env.REACT_APP_API_URL}stories/user/${username}`;
 
-            const headers = {};
+            let token = null;
+            let access_token = null;
 
             if (isOwner) {
-                const token = localStorage.getItem("JWT_TOKEN");
+                token = localStorage.getItem("JWT_TOKEN");
+                access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
 
-                if (!token) {
+                if (!token || !access_token) {
                     throw new Error(t("errors.NotLoggedIn"));
                 }
-
-                headers.Authorization = `Bearer ${token}`;
             }
 
             const response = await fetch(url, {
                 method: "GET",
-                headers,
+                headers: {
+                    ...(isOwner && {
+                        Authorization: `Bearer ${token}`,
+                        "x-refresh-token": access_token,
+                    }),
+                },
             });
 
             const data = await response.json();
@@ -92,39 +102,41 @@ export default function UserPage() {
     }, [username]);
 
     return (
-        <div className={styles.userBlock}>
-            <div className={styles.leftSide}>
-                <img src={icon} alt={t("user.AvatarAlt")} className={styles.avatar} />
+        <div className={styles.userContent}>
+            <div className={styles.userBlock}>
+                <div className={styles.leftSide}>
+                    <img src={icon} alt={t("user.AvatarAlt")} className={styles.avatar} />
 
-                {isOwner && user && (
-                    <ChangeUsername user={user} setUser={setUser} />
-                )}
-            </div>
+                    {isOwner && user && (
+                        <ChangeUsername user={user} setUser={setUser} />
+                    )}
+                </div>
 
-            <div className={styles.rightSide}>
-                {user && (
-                    <>
-                        <h2 className={styles.name}>{user.username}</h2>
+                <div className={styles.rightSide}>
+                    {user && (
+                        <>
+                            <h2 className={styles.name}>{user.username}</h2>
 
-                        <p className={styles.createdAt}>
-                            {t("user.RegisteredAt")}{" "}
-                            {new Date(user.createdAt).toLocaleDateString()}
-                        </p>
+                            <p className={styles.createdAt}>
+                                {t("user.RegisteredAt")}{" "}
+                                {new Date(user.createdAt).toLocaleDateString()}
+                            </p>
 
-                        <p className={styles.countStories}>
-                            {t("user.PublishedStoriesCount", {
-                                count: user.publishedStoriesCount || 0,
-                            })}
-                        </p>
+                            <p className={styles.countStories}>
+                                {t("user.PublishedStoriesCount", {
+                                    count: user.publishedStoriesCount || 0,
+                                })}
+                            </p>
 
-                        <StoriesStatus
-                            stories={stories}
-                            isOwner={isOwner}
-                            setStories={setStories}
-                            setUser={setUser}
-                        />
-                    </>
-                )}
+                            <StoriesStatus
+                                stories={stories}
+                                isOwner={isOwner}
+                                setStories={setStories}
+                                setUser={setUser}
+                            />
+                        </>
+                    )}
+                </div>
             </div>
         </div>
     );
