@@ -1,14 +1,75 @@
-.reviewContent{
+.reviewContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100vh - 70px);
     width: 100%;
+    background: var(--gradient);
+}
+
+
+.reviewContent form {
+    width: 470px;
+    max-width: 90%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background: var(--white-dark);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    margin: auto;
+}
+
+.reviewContent form p{
+    font-size: 20px;
+    font-family: var(--tittle-font);
+    font-weight: 900;
+    color: var(--b-w);
+}
+
+.reviewContent input {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: var(--main-font);
+    border: none;
+    background: var(--g-ld);
+    outline: none;
+    color: var(--b-w);
+    transition: all 0.3s ease-in-out;
+}
+
+.reviewContent input::placeholder {
+    color: var(--g-lg);
+    transition: color 0.3s ease;
+}
+
+.reviewContent input:focus::placeholder{
+    color: var(--b-w);
+}
+
+.reviewContent button {
+    width: fit-content;
+    padding: 14px 40px;
+    border-radius: 12px;
+    border: none;
+    background: var(--main-color);
+    color: white;
+    font-size: 16px;
+    font-family: var(--main-font);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.reviewContent button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px var(--shadow);
 }
 
 .swiperSection{
     width: 100%;
     padding: 60px 0 120px;
-    background: var(--gradient);
 }
 
 
@@ -81,4 +142,21 @@
         width: 280px;
         height: 380px;
     }
+}
+
+@media (max-width: 900px) {
+
+    .reviewContent {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .reviewContent form {
+        padding: 40px 20px;
+    }
+
+    .swiperSection {
+        padding: 40px 0;
+    }
+
 }

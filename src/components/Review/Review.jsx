@@ -67,7 +67,8 @@ export default function Review() {
     return (
         <div className='reviewContent'>
             <form action="">
-                <input type="text" value={review} onChange={(e) => setReview(e.target.value)}/>
+                <p>Leave your comment</p>
+                <input type="text" placeholder='Your comment' value={review} onChange={(e) => setReview(e.target.value)}/>
                 <button type='submit' onClick={sendReview}>Send</button>
             </form>
             <section className="swiperSection">
