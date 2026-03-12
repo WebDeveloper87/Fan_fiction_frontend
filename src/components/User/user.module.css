@@ -7,7 +7,7 @@
     border-radius: 36px;
     background: var(--w-ld);
     box-shadow: 0 10px 30px var(--shadow);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--g-lg) 25%, transparent);
 }
 
 .leftSide {
@@ -18,7 +18,11 @@
     flex-direction: column;
     align-items: center;
     gap: 28px;
-    background: linear-gradient(180deg, #b62cff, var(--main-color));
+    background: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--main-color) 82%, #b62cff 18%),
+            var(--main-color)
+    );
     border-top-right-radius: 110px;
     border-bottom-right-radius: 110px;
 }
@@ -28,18 +32,18 @@
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border: 3px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    background: color-mix(in srgb, var(--p-w) 20%, transparent);
+    border: 3px solid color-mix(in srgb, var(--p-w) 85%, transparent);
+    box-shadow: 0 8px 18px var(--shadow);
 }
 
 .changename {
     min-width: 190px;
     padding: 14px 20px;
     border-radius: 14px;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--p-w);
     background: transparent;
-    color: #ffffff;
+    color: var(--p-w);
     font-size: 18px;
     font-family: var(--main-font);
     font-weight: 700;
@@ -58,6 +62,7 @@
     display: flex;
     flex-direction: column;
     min-width: 0;
+    background: var(--w-ld);
 }
 
 .name {
@@ -85,7 +90,7 @@
 
 .createdAt {
     font-size: 20px;
-    color: var(--gary-white);
+    color: var(--g-lg);
     font-weight: 600;
 }
 
@@ -131,6 +136,7 @@
     overflow: hidden;
     word-break: break-word;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid color-mix(in srgb, var(--g-lg) 30%, transparent);
 }
 
 .published:hover,
@@ -140,11 +146,19 @@
 }
 
 .published {
-    background: linear-gradient(135deg, #f4d8ff, #ffffff);
+    background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--main-color) 18%, var(--w-ld)),
+            var(--w-ld)
+    );
 }
 
 .archived {
-    background: linear-gradient(135deg, #ececec, #ffffff);
+    background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--g-ld) 85%, var(--w-ld)),
+            var(--w-ld)
+    );
 }
 
 .published::before,
@@ -165,5 +179,5 @@
 
 .archived::before {
     content: "Archived";
-    color: var(--gary-white);
+    color: var(--g-lg);
 }

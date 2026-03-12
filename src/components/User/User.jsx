@@ -1,91 +1,131 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import styles from "./user.module.css";
-import { useTranslation } from "react-i18next";
 import icon from "../../photos/user_icon.png";
+import ChangeUsername from "../../components/ChangeName/ChangeName";
+import StoriesStatus from "../../components/StoriesStatus/StoriesStatus";
+import {useTranslation} from "react-i18next";
+import toast from "react-hot-toast";
 
-export default function User() {
+export default function UserPage() {
+    const {username} = useParams();
     const { t } = useTranslation();
     const [user, setUser] = useState(null);
+    const [stories, setStories] = useState([]);
+
+    const isOwner = !username;
 
     const fetchUser = async () => {
         try {
-            const response = await fetch(
-                `${process.env.REACT_APP_API_URL}users/me`,
-                {
-                    method: "GET",
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem("JWT_TOKEN")}`,
-                    },
+            const url = isOwner
+                ? `${process.env.REACT_APP_API_URL}users/me`
+                : `${process.env.REACT_APP_API_URL}users/username/${username}`;
+
+            const headers = {};
+
+            if (isOwner) {
+                const token = localStorage.getItem("JWT_TOKEN");
+
+                if (!token) {
+                    throw new Error(t("errors.NotLoggedIn"));
                 }
-            );
+
+                headers.Authorization = `Bearer ${token}`;
+            }
+
+            const response = await fetch(url, {
+                method: "GET",
+                headers,
+            });
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || "User not found");
+                throw new Error(data.message || t("errors.UserNotFound"));
             }
 
             setUser(data);
         } catch (error) {
-            console.error(error);
+            toast.error(error.message || t("errors.UserNotFound"));
+        }
+    };
+
+    const fetchStories = async () => {
+        try {
+            const url = isOwner
+                ? `${process.env.REACT_APP_API_URL}stories/my-stories`
+                : `${process.env.REACT_APP_API_URL}stories/user/${username}`;
+
+            const headers = {};
+
+            if (isOwner) {
+                const token = localStorage.getItem("JWT_TOKEN");
+
+                if (!token) {
+                    throw new Error(t("errors.NotLoggedIn"));
+                }
+
+                headers.Authorization = `Bearer ${token}`;
+            }
+
+            const response = await fetch(url, {
+                method: "GET",
+                headers,
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || t("errors.StoriesNotFound"));
+            }
+
+            const storiesArray = data.stories || data || [];
+            setStories(storiesArray);
+        } catch (error) {
+            toast.error(error.message || t("errors.StoriesNotFound"));
         }
     };
 
     useEffect(() => {
         fetchUser();
-    }, []);
+        fetchStories();
+    }, [username]);
 
     return (
         <div className={styles.userBlock}>
             <div className={styles.leftSide}>
-                <img src={icon} alt="user" className={styles.avatar}/>
-                <button className={styles.changename}>Change username</button>
+                <img src={icon} alt={t("user.AvatarAlt")} className={styles.avatar} />
+
+                {isOwner && user && (
+                    <ChangeUsername user={user} setUser={setUser} />
+                )}
             </div>
 
             <div className={styles.rightSide}>
-                <h2 className={styles.name}>Artem</h2>
-                <p className={styles.createdAt}>Registered at 08.03.2026</p>
-                <p className={styles.countStories}>12 published stories</p>
+                {user && (
+                    <>
+                        <h2 className={styles.name}>{user.username}</h2>
 
-                <div className={styles.storySection}>
-                    <h3 className={styles.sectionTitle}>Published stories</h3>
-                    <div className={styles.storiesGrid}>
-                        <div className={styles.published}>Beautiful Country</div>
-                        <div className={styles.published}>Beautiful Country 2</div>
-                        <div className={styles.published}>Beautiful Country 3</div>
-                    </div>
-                </div>
+                        <p className={styles.createdAt}>
+                            {t("user.RegisteredAt")}{" "}
+                            {new Date(user.createdAt).toLocaleDateString()}
+                        </p>
 
-                <div className={styles.storySection}>
-                    <h3 className={styles.sectionTitle}>Archived stories</h3>
-                    <div className={styles.storiesGrid}>
-                        <div className={styles.archived}>Archived story 1</div>
-                        <div className={styles.archived}>Archived story 2</div>
-                    </div>
-                </div>
+                        <p className={styles.countStories}>
+                            {t("user.PublishedStoriesCount", {
+                                count: user.publishedStoriesCount || 0,
+                            })}
+                        </p>
+
+                        <StoriesStatus
+                            stories={stories}
+                            isOwner={isOwner}
+                            setStories={setStories}
+                            setUser={setUser}
+                        />
+                    </>
+                )}
             </div>
         </div>
-    )
-    {/*
-               {user && (
-                <div className={styles.userInfo}>
-                    <h2>{user.username}</h2>
-                    <p>
-                        {t("user.joined")}{" "}
-                        {new Date(user.createdAt).toLocaleDateString()}
-                    </p>
-
-                    <p>
-                        {t("user.published")}: {user.publishedStoriesCount}
-                    </p>
-
-                    {user.privateStoriesCount !== undefined && (
-                        <p>
-                            {t("user.private")}: {user.privateStoriesCount}
-                        </p>
-                    )}
-                </div>
-            )}
-            */
-    }
+    );
 }
