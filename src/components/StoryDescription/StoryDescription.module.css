@@ -1,0 +1,68 @@
+.sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    background: var(--w-ld);
+    color: var(--b-w);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 1px solid color-mix(in srgb, var(--g-lg) 25%, transparent);
+    height: fit-content;
+    position: sticky;
+    top: 90px;
+}
+
+.title {
+    margin: 0 0 24px 0;
+    font-size: 30px;
+    line-height: 1.15;
+    font-family: var(--tittle-font);
+    color: var(--b-w);
+    word-break: break-word;
+}
+
+.infoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 800;
+    font-family: var(--main-font);
+    color: var(--g-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.value {
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: var(--main-font);
+    color: var(--b-w);
+    word-break: break-word;
+}
+.name {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--b-w);
+    font-family: var(--tittle-font);
+    font-weight: 800;
+    word-break: break-word;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+        padding: 24px;
+    }
+}

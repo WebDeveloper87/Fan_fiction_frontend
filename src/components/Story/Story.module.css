@@ -1,0 +1,48 @@
+.page {
+    min-height: 100vh;
+    background: var(--gradient);
+    padding: 90px 28px 48px;
+}
+
+.layout {
+    width: min(1320px, 96%);
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.wrapper {
+    flex: 1;
+    min-width: 0;
+    background: var(--w-ld);
+    color: var(--b-w);
+    border-radius: 28px;
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 42px;
+    border: 1px solid color-mix(in srgb, var(--g-lg) 25%, transparent);
+}
+
+.text {
+    font-size: 18px;
+    line-height: 1.9;
+    font-family: var(--main-font);
+    color: var(--b-w);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .wrapper {
+        width: 100%;
+        padding: 28px;
+    }
+
+    .page {
+        padding: 80px 16px 32px;
+    }
+}
