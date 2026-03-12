@@ -7,6 +7,7 @@ export const privatRoutes = [
     {path: '/story/create', component: CreateStoryPage },
     {path: '/fanfics', component: FanficsPage },
     {path: '/user', component: UserPage },
+    { path:'/user/:username', component: UserPage },
 ]
 
 export const publicRoute = [

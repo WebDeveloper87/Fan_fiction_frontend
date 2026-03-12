@@ -90,7 +90,13 @@
   "errors": {
     "fillAllFields": "Please fill all fields and add at least one character.",
     "mustBeLoggedIn": "You must be logged in to create a story.",
-    "failedToGenerateStory": "Failed to generate story."
+    "failedToGenerateStory": "Failed to generate story.",
+    "NotLoggedIn": "You are not logged in",
+    "UserNotFound": "User not found",
+    "StoriesNotFound": "Stories not found",
+    "FailedToUpdateStoryStatus": "Failed to update story status",
+    "EmptyUsername": "Username cannot be empty",
+    "FailedToUpdateUsername": "Failed to update username"
   },
   "toast": {
     "generating": "Generating story...",
@@ -99,5 +105,31 @@
   "stories" : {
     "title" : "Title",
     "author" : "Author"
+  },
+  "user": {
+    "RegisteredAt": "Registered at",
+    "ChangeUsername": "Change name",
+    "Empty": "No stories yet",
+    "AvatarAlt": "user",
+    "PublishedStoriesCount_one": "{{count}} published story",
+    "PublishedStoriesCount_other": "{{count}} published stories",
+    "Stories": "Stories",
+    "Public": "Public",
+    "Private": "Private",
+    "NoStoriesYet": "No stories yet",
+    "NoPublicStories": "No public stories",
+    "NoPrivateStories": "No private stories",
+    "MakePrivate": "Make private",
+    "MakePublic": "Make public",
+    "StoryMadePrivate": "Story is now private",
+    "StoryMadePublic": "Story is now public",
+    "NewUsername": "New username",
+    "UsernameUpdated": "Username updated"
+  },
+  "common": {
+    "Loading": "Loading...",
+    "Saving": "Saving...",
+    "Save": "Save",
+    "Cancel": "Cancel"
   }
 }
