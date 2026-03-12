@@ -98,8 +98,11 @@ function Stories() {
                     <div onClick={() => navigate(`/story/${story.id}`)} key={story.id}>
                         <div className={style.story}>
                             <b>{t('stories.title')} : {story.title}</b>
-                            <p>{t('stories.author')} : <Link to={`/user/${story.user.username}`}>{story.user.username}</Link></p>
-                            <button className={style.like} onClick={() => handleLike(story.id)}>
+                            <p>{t('stories.author')} : <Link onClick={(e) => e.stopPropagation()} to={`/user/${story.user.username}` }>{story.user.username}</Link></p>
+                            <button className={style.like}     onClick={(e) => {
+                                e.stopPropagation();
+                                handleLike(story.id);
+                            }}>
                                 {story.isLiked ? <i className='bx bxs-heart'></i> : <i className='bx bx-heart' ></i>} {story.likesCount}
                             </button>
                             <div className={style.arrow}>
