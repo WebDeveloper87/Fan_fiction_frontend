@@ -41,7 +41,7 @@ function Footer() {
                         <div className={style.socials}>
                             <a href="#"><i className='bx bxl-instagram'></i></a>
                             <a href="#"><i className='bx bxl-twitter'></i></a>
-                            <a href="#"><i className='bx bxl-github'></i></a>
+                            <a href="https://github.com/WebDeveloper87?tab=repositories"><i className='bx bxl-github'></i></a>
                             <a href="#"><i className='bx bxl-discord'></i></a>
                         </div>
                     </div>
