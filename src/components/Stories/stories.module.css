@@ -54,6 +54,7 @@
     background-color: transparent;
     display: flex;
     margin: 15px 0;
+    color: var(--b-w);
 }
 
 

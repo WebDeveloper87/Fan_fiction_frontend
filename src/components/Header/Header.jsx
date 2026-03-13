@@ -138,9 +138,14 @@ function Header() {
         </header>
 
             <div className={`${style.mobileMenu} ${isOpen ? style.open : ""}`}>
-                <Link className={style.mobileLink} to="/">{t("header.home")}</Link>
-                <Link className={style.mobileLink} to="/fanfics">{t("header.fanfics")}</Link>
 
+                {isAuth ? (
+                    <>
+                        <Link className={style.mobileLink} to="/">{t("header.home")}</Link>
+                        <Link className={style.mobileLink} to="/fanfics">{t("header.fanfics")}</Link></>
+                ) : (
+                    <Link className={style.mobileLink} to="/">{t("header.home")}</Link>
+                )}
 
                 <div className={style.mobileSettings}>
                     <button onClick={toggleLanguage}>

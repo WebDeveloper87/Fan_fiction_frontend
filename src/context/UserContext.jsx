@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState(null); // user тільки після login
+    const [user, setUser] = useState(null);
 
     const [token, setToken] = useState(localStorage.getItem("JWT_TOKEN"));
     const [refreshToken, setRefreshToken] = useState(localStorage.getItem("JWT_ACCESS_TOKEN"));
