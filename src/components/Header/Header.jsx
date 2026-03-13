@@ -10,7 +10,7 @@ function Header() {
     const { t } = useTranslation();
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { lang, toggleLanguage } = useContext(LanguageContext);
-    const {isAuth, user, setUser, logout} = useContext(UserContext)
+    const {isAuth, user, logout} = useContext(UserContext)
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -27,50 +27,6 @@ function Header() {
 
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    const fetchUser = async () => {
-        try {
-            const token = localStorage.getItem("JWT_TOKEN");
-            const access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
-
-            if (!token || !access_token) {
-                throw new Error(t("errors.mustBeLoggedIn"));
-            }
-
-            const response = await fetch(
-                `${process.env.REACT_APP_API_URL}users/me`,
-                {
-                    method: "GET",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "x-refresh-token" : `${access_token}`,
-                    },
-                }
-            );
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.message || "User not found");
-            }
-
-            console.log(data);
-            setUser(data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-
-        useEffect(() => {
-            if (isAuth) {
-                fetchUser()
-            }
-        }, [isAuth])
-
-
-
-
 
     return (
         <div className={style.headerWrapper}>

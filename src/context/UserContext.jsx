@@ -2,7 +2,7 @@ import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 export const UserContext = createContext();
-export const AuthProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
     const navigate = useNavigate();
 
     const [isAuth, setIsAuth] = useState(false);
@@ -22,10 +22,36 @@ export const AuthProvider = ({ children }) => {
         navigate("/");
     };
 
+    const fetchUser = async () => {
+        try {
+            const token = localStorage.getItem("JWT_TOKEN");
+            const access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
+
+            if (!token || !access_token) return;
+
+            const res = await fetch(`${process.env.REACT_APP_API_URL}users/me`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "x-refresh-token": access_token,
+                },
+            });
+
+            if (!res.ok) throw new Error();
+
+            const data = await res.json();
+
+            setUser(data);
+
+        } catch {
+            logout();
+        }
+    };
+
     const checkAuth = async () => {
         if (!token || !refreshToken) {
             setIsAuth(false);
             setLoading(false);
+            setUser(null);
             return;
         }
 
@@ -39,6 +65,7 @@ export const AuthProvider = ({ children }) => {
             if (!res.ok) throw new Error();
 
             setIsAuth(true);
+            await fetchUser();
 
         } catch {
             try {
@@ -56,6 +83,7 @@ export const AuthProvider = ({ children }) => {
                 setToken(data.accessToken);
 
                 setIsAuth(true);
+                await fetchUser();
             } catch {
                 logout();
             }

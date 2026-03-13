@@ -16,7 +16,7 @@ export default function UserPage() {
 
     const { user: currentUser } = useContext(UserContext);
 
-    const isOwner = currentUser?.username === username;
+    const isOwner = !username || currentUser?.username === username;
 
     const fetchUser = async () => {
         try {
@@ -100,9 +100,11 @@ export default function UserPage() {
     };
 
     useEffect(() => {
+        if (!username && !currentUser) return;
+
         fetchUser();
         fetchStories();
-    }, [username]);
+    }, [username, currentUser]);
 
     return (
         <div className={styles.userContent}>

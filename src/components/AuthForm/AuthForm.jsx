@@ -9,8 +9,8 @@ import {useNavigate} from "react-router-dom";
 function AuthForm() {
     const [active, setActive] = useState(false);
     const { t } = useTranslation();
-    const {setIsAuth, } = useContext(UserContext)
     const navigate = useNavigate();
+    const { setUser, setIsAuth} = useContext(UserContext)
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
@@ -20,6 +20,37 @@ function AuthForm() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
 
+    const fetchUser = async () => {
+        try {
+            const token = localStorage.getItem("JWT_TOKEN");
+            const access_token = localStorage.getItem("JWT_ACCESS_TOKEN");
+
+            if (!token || !access_token) {
+                throw new Error(t("errors.mustBeLoggedIn"));
+            }
+
+            const response = await fetch(
+                `${process.env.REACT_APP_API_URL}users/me`,
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "x-refresh-token" : `${access_token}`,
+                    },
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "User not found");
+            }
+            console.log("auth:", data);
+            setUser(data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const loginRequest = async (email, password) => {
         const response = await fetch(
@@ -45,6 +76,7 @@ function AuthForm() {
         localStorage.setItem("JWT_TOKEN", data.accessToken);
         localStorage.setItem("JWT_ACCESS_TOKEN", data.refreshToken);
         setIsAuth(true);
+        await fetchUser();
         navigate('/fanfics')
 
         return data;
@@ -93,6 +125,7 @@ function AuthForm() {
         localStorage.setItem("JWT_TOKEN", data.accessToken);
         localStorage.setItem("JWT_ACCESS_TOKEN", data.refreshToken);
         setIsAuth(true);
+        await fetchUser();
         navigate('/fanfics')
 
         return data;
