@@ -184,14 +184,6 @@ function AuthForm() {
                         <button type="submit" className={style.btn}>
                             {t("auth.loginForm.login")}
                         </button>
-
-                        <p className={style.formText}>
-                            {t("auth.loginForm.socialMedia")}
-                        </p>
-
-                        <button type="submit" className={style.btn}>
-                          <i className="bx bxl-google"></i> {t("auth.loginForm.google")}
-                        </button>
                     </form>
                 </div>
 
@@ -230,14 +222,6 @@ function AuthForm() {
 
                         <button type="submit" className={style.btn}>
                             {t("auth.registrationForm.register")}
-                        </button>
-
-                        <p className={style.formText}>
-                            {t("auth.registrationForm.socialMedia")}
-                        </p>
-
-                        <button type="submit" className={style.btn}>
-                            <i className="bx bxl-google"></i> {t("auth.registrationForm.google")}
                         </button>
                     </form>
                 </div>
