@@ -10,7 +10,8 @@
   },
   "footer": {
     "slogan" : "Платформа, де уява перетворюється на історії",
-
+    "leave": "Залишити відгук",
+    "support": "Підтримай нас",
     "aboutTitle": "Про нас",
     "aboutUs": "Про компанію",
     "terms": "Умови користування",
@@ -60,6 +61,14 @@
   },
   "review": {
     "leave": "Залиш відгук"
+  },
+  "storiesTable": {
+    "position": "#",
+    "title": "Title",
+    "genre": "Genre",
+    "fandom": "Fandom",
+    "author": "Author",
+    "likes": "Likes"
   },
   "storyForm": {
     "title": "Назва",

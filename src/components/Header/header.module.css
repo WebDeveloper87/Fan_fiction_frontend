@@ -291,3 +291,33 @@
     }
 
 }
+
+@media (max-width: 600px) {
+    .menu{
+        font-size: 18px;
+        right: 12px;
+    }
+
+    .mobileMenu{
+        width: 90%;
+        top: 70px;
+        height: calc(100vh - 70px);
+        padding: 25px 15px;
+        gap: 14px;
+    }
+
+    .mobileLink{
+        font-size: 15px;
+        padding: 6px 10px;
+    }
+
+    .mobileSettings button{
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .mobileAuth button{
+        font-size: 14px;
+        padding: 8px;
+    }
+}
