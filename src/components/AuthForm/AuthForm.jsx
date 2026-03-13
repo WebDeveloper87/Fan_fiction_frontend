@@ -45,7 +45,6 @@ function AuthForm() {
             if (!response.ok) {
                 throw new Error(data.message || "User not found");
             }
-            console.log("auth:", data);
             setUser(data);
         } catch (error) {
             console.error(error);

@@ -55,9 +55,8 @@
     display: flex;
     margin: 15px 0;
     color: var(--b-w);
+    width: 30%;
 }
-
-
 
 .arrow{
     rotate: 45deg;

@@ -40,6 +40,7 @@ function Header() {
                 <>
                     <Link className={style.link} to='/'>{t("header.home")}</Link>
                     <Link className={style.link} to='/fanfics'>{t("header.fanfics")}</Link>
+                    <Link className={style.link} to="/leaderboard">{t("header.leaderboard")}</Link>
                 </>
                 ) : (
                 <>
@@ -98,7 +99,9 @@ function Header() {
                 {isAuth ? (
                     <>
                         <Link className={style.mobileLink} to="/">{t("header.home")}</Link>
-                        <Link className={style.mobileLink} to="/fanfics">{t("header.fanfics")}</Link></>
+                        <Link className={style.mobileLink} to="/fanfics">{t("header.fanfics")}</Link>
+                        <Link className={style.mobileLink} to="/leaderboard">{t("header.leaderboard")}</Link>
+                    </>
                 ) : (
                     <Link className={style.mobileLink} to="/">{t("header.home")}</Link>
                 )}
