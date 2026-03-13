@@ -5,13 +5,13 @@ import "./styles/theme.module.css";
 import {ThemeProvider} from "./context/ThemeContext";
 import {Toaster} from "react-hot-toast";
 import AppRoutes from "./components/AppRoutes/AppRoutes";
-import {AuthProvider} from "./context/UserContext";
+import { UserProvider} from "./context/UserContext";
 
 function App() {
 
     return (
         <BrowserRouter>
-            <AuthProvider>
+            <UserProvider>
                 <LanguageProvider>
                     <ThemeProvider>
 
@@ -28,7 +28,7 @@ function App() {
 
                     </ThemeProvider>
                 </LanguageProvider>
-            </AuthProvider>
+            </UserProvider>
         </BrowserRouter>
     );
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import styles from "./user.module.css";
 import icon from "../../photos/user_icon.png";
@@ -6,6 +6,7 @@ import ChangeUsername from "../../components/ChangeName/ChangeName";
 import StoriesStatus from "../../components/StoriesStatus/StoriesStatus";
 import {useTranslation} from "react-i18next";
 import toast from "react-hot-toast";
+import {UserContext} from "../../context/UserContext";
 
 export default function UserPage() {
     const {username} = useParams();
@@ -13,7 +14,9 @@ export default function UserPage() {
     const [user, setUser] = useState(null);
     const [stories, setStories] = useState([]);
 
-    const isOwner = !username;
+    const { user: currentUser } = useContext(UserContext);
+
+    const isOwner = !username || currentUser?.username === username;
 
     const fetchUser = async () => {
         try {
@@ -97,9 +100,11 @@ export default function UserPage() {
     };
 
     useEffect(() => {
+        if (!username && !currentUser) return;
+
         fetchUser();
         fetchStories();
-    }, [username]);
+    }, [username, currentUser]);
 
     return (
         <div className={styles.userContent}>

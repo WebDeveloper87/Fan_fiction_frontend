@@ -5,7 +5,8 @@
     "account": "Account",
     "create" : "Create",
     "logout" : "Logout",
-    "profile" : "Profile"
+    "profile" : "Profile",
+    "leaderboard" : "Leaderboard"
   },
   "footer": {
     "slogan": "A platform where imagination becomes stories",

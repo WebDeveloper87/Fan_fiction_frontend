@@ -27,7 +27,7 @@ export default function StoriesStatus({
     const visiblePrivateStories = isOwner ? privateStories : [];
 
     const handleOpenStory = (storyId) => {
-        navigate(`/stories/${storyId}`);
+        navigate(`/story/${storyId}`);
     };
 
     const handleToggleStatus = async (e, story) => {
