@@ -2,10 +2,14 @@ import React, {useEffect, useState} from 'react'
 import style from './StoriesLeaderboard.module.css'
 import Loader from "../../UI/Loader/Loader";
 import toast from "react-hot-toast";
+import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function StoriesLeaderboard() {
     const [stories, setStories] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    const {t} = useTranslation();
 
     const fetchStoriesLeaderboard = async () => {
         try {
@@ -53,23 +57,23 @@ function StoriesLeaderboard() {
                 <table className={style.table}>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Genre</th>
-                        <th>Fandom</th>
-                        <th>Author</th>
-                        <th>Likes</th>
+                        <th>{t("storiesTable.position")}</th>
+                        <th>{t("storiesTable.title")}</th>
+                        <th>{t("storiesTable.genre")}</th>
+                        <th>{t("storiesTable.fandom")}</th>
+                        <th>{t("storiesTable.author")}</th>
+                        <th>{t("storiesTable.likes")}</th>
                     </tr>
                     </thead>
                     <tbody>
                     {stories.map((story, index) => (
                         <tr key={story.id}>
-                            <td>{index + 1}</td>
-                            <td>{story.title}</td>
-                            <td>{story.genre}</td>
-                            <td>{story.fandom}</td>
-                            <td>{story.author}</td>
-                            <td>{story.likesCount}</td>
+                            <td><p>{index + 1}</p></td>
+                            <td><p className={style.navigate} onClick={() => {navigate(`/story/${story.id}`)}}>{story.title}</p></td>
+                            <td><p>{story.genre}</p></td>
+                            <td><p>{story.fandom}</p></td>
+                            <td><p className={style.navigate} onClick={() => {navigate(`/user/${story.author}`)}} n>{story.author}</p></td>
+                            <td><p>{story.likesCount}</p></td>
                         </tr>
                     ))}
                     </tbody>

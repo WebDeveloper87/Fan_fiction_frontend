@@ -18,7 +18,7 @@
 }
 
 .story {
-    min-height: 150px;
+    height: 170px;
     padding: 18px 18px 20px;
     border-radius: 22px;
     font-family: var(--main-font);
@@ -36,6 +36,19 @@
 
 .story a{
     color: var(--b-w);
+}
+
+.story b {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.story p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -64,4 +77,49 @@
     align-self: end;
     margin-top: auto;
     transition: all 0.4s ease;
+}
+
+@media (max-width: 1200px) {
+    .stories {
+        padding: 40px 100px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .stories {
+        padding: 30px 50px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+    }
+
+    .story {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .stories {
+        padding: 20px;
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .story {
+        font-size: 15px;
+        min-height: 120px;
+        padding: 16px;
+    }
+
+    .like {
+        width: auto;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .story {
+        font-size: 14px;
+        padding: 14px;
+    }
 }

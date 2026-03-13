@@ -34,7 +34,7 @@ function Footer() {
                     </div>
                     <div className={style.section}>
                         <h3>{t("footer.support")}</h3>
-                        <a href="/review">{t("footer.leave")}</a>
+                        <a href="/">{t("footer.leave")}</a>
                     </div>
                     <div className={style.section}>
                         <h3>{t("footer.contact")}</h3>

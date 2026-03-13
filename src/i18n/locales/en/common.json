@@ -62,6 +62,14 @@
   "review": {
     "leave": "Leave a review"
   },
+  "storiesTable": {
+    "position": "#",
+    "title": "Назва",
+    "genre": "Жанр",
+    "fandom": "Фандом",
+    "author": "Автор",
+    "likes": "Лайки"
+  },
   "storyForm": {
     "title": "Title",
     "titlePlaceholder": "Enter story title",
