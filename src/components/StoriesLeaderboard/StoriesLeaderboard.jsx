@@ -52,7 +52,7 @@ function StoriesLeaderboard() {
         <Loader />
     ) : (
         <div className={style.container}>
-            <h1 className={style.title}>Stories Leaderboard</h1>
+            <h1 className={style.title}>{t("storiesTable.leaderboard")}</h1>
             <div className={style.tableWrapper}>
                 <table className={style.table}>
                     <thead>
