@@ -142,6 +142,11 @@
         width: 280px;
         height: 380px;
     }
+
+    .reviewContent form {
+        padding: 25px 15px;
+        width: 360px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -152,7 +157,9 @@
     }
 
     .reviewContent form {
-        padding: 40px 20px;
+        padding: 30px 15px;
+        width: 370px;
+        gap: 10px;
     }
 
     .swiperSection {
