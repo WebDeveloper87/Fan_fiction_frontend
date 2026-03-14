@@ -63,12 +63,13 @@
     "leave": "Leave a review"
   },
   "storiesTable": {
+    "leaderboard" : "Stories Leaderboard",
     "position": "#",
-    "title": "Назва",
-    "genre": "Жанр",
-    "fandom": "Фандом",
-    "author": "Автор",
-    "likes": "Лайки"
+    "title": "Title",
+    "genre": "Genre",
+    "fandom": "Fandom",
+    "author": "Author",
+    "likes": "Likes"
   },
   "storyForm": {
     "title": "Title",

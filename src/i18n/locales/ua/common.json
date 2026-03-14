@@ -63,12 +63,13 @@
     "leave": "Залиш відгук"
   },
   "storiesTable": {
+    "leaderboard" : "Найкращі історії",
     "position": "#",
-    "title": "Title",
-    "genre": "Genre",
-    "fandom": "Fandom",
-    "author": "Author",
-    "likes": "Likes"
+    "title": "Назва",
+    "genre": "Жанр",
+    "fandom": "Фандом",
+    "author": "Автор",
+    "likes": "Лайки"
   },
   "storyForm": {
     "title": "Назва",
