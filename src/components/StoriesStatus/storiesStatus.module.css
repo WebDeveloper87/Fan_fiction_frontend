@@ -41,10 +41,10 @@
 .publicCard,
 .privateCard {
     min-height: 150px;
-    padding: 18px 18px 20px;
+    padding: 15px 15px 18px;
     border-radius: 22px;
     font-family: var(--main-font);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--b-w);
     box-shadow: 0 6px 18px var(--shadow);
@@ -83,8 +83,7 @@
 
 .storyTitle {
     margin: 0;
-    font-size: 19px;
-    line-height: 1.4;
+    font-size: 18px;
     color: var(--b-w);
     position: relative;
     z-index: 1;
